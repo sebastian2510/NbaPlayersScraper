@@ -20,10 +20,10 @@ internal class PointScraper : ScraperBase
         HtmlNodeCollection trtags = GetTrTags(GetNode(doc));
         List<Stats> stats = new();
         // add every 13 stats to the stats list
-        for (int i = 0; i < trtags.Count; i++)
+        for (int i = 0; i < trtags.Count - 1; i++)
         {
             HtmlNodeCollection tdtags = GetTdTags(trtags[i]);
-            for (int j = 0; j < tdtags.Count - 1; j += 12)
+            for (int j = 0; j < tdtags.Count; j += 12)
             {
                 Stats stat = new();
                 stat.GP = GetInnerText(GetSpanTags(tdtags[j]));
