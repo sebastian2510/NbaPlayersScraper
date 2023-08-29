@@ -14,7 +14,7 @@ internal class PointScraper : ScraperBase
 
     // Create an overall function that will return a list of stats
 
-    public List<Stats> GetStats(string url)
+    public List<Stats> PrintAllStats(string url)
     {
         HtmlDocument doc = GetHtmlDocument(url);
         HtmlNodeCollection trtags = GetTrTags(GetNode(doc));
@@ -25,22 +25,20 @@ internal class PointScraper : ScraperBase
             HtmlNodeCollection tdtags = GetTdTags(trtags[i]);
             for (int j = 0; j < tdtags.Count - 1; j += 12)
             {
-                Stats stat = new()
-                {
-                    GP = GetInnerText(GetSpanTags(tdtags[j])),
-                    GS = GetInnerText(GetSpanTags(tdtags[j + 1])),
-                    MIN = GetInnerText(GetSpanTags(tdtags[j + 2])),
-                    PTS = GetInnerText(GetSpanTags(tdtags[j + 3])),
-                    OR = GetInnerText(GetSpanTags(tdtags[j + 4])),
-                    DR = GetInnerText(GetSpanTags(tdtags[j + 5])),
-                    REB = GetInnerText(GetSpanTags(tdtags[j + 6])),
-                    AST = GetInnerText(GetSpanTags(tdtags[j + 7])),
-                    STL = GetInnerText(GetSpanTags(tdtags[j + 8])),
-                    BLK = GetInnerText(GetSpanTags(tdtags[j + 9])),
-                    TO = GetInnerText(GetSpanTags(tdtags[j + 10])),
-                    PF = GetInnerText(GetSpanTags(tdtags[j + 11])),
-                    ASTTO = GetInnerText(GetSpanTags(tdtags[j + 12]))
-                };
+                Stats stat = new();
+                stat.GP = GetInnerText(GetSpanTags(tdtags[j]));
+                stat.GS = GetInnerText(GetSpanTags(tdtags[j + 1]));
+                stat.MIN = GetInnerText(GetSpanTags(tdtags[j + 2]));
+                stat.PTS = GetInnerText(GetSpanTags(tdtags[j + 3]));
+                stat.OR = GetInnerText(GetSpanTags(tdtags[j + 4]));
+                stat.DR = GetInnerText(GetSpanTags(tdtags[j + 5]));
+                stat.REB = GetInnerText(GetSpanTags(tdtags[j + 6]));
+                stat.AST = GetInnerText(GetSpanTags(tdtags[j + 7]));
+                stat.STL = GetInnerText(GetSpanTags(tdtags[j + 8]));
+                stat.BLK = GetInnerText(GetSpanTags(tdtags[j + 9]));
+                stat.TO = GetInnerText(GetSpanTags(tdtags[j + 10]));
+                stat.PF = GetInnerText(GetSpanTags(tdtags[j + 11]));
+                stat.ASTTO = GetInnerText(GetSpanTags(tdtags[j + 12]));
                 stats.Add(stat);
 
             }
@@ -85,7 +83,6 @@ internal class PointScraper : ScraperBase
         }
         catch (Exception ex)
         {
-            Console.WriteLine(ex);
             throw;
         }
     }

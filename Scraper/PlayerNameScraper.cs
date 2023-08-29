@@ -26,6 +26,7 @@ namespace NbaScraper
                 HtmlNode tdNode = GetTableTd(trNode);
                 HtmlNode spanNode = GetTableSpan(tdNode);
                 HtmlNode anchorNode = GetTableAnchor(spanNode);
+                // Console.WriteLine($"[{i}] {name}");
                 players.Add(GetAnchorInnerText(anchorNode));
             }
             return players;
@@ -35,6 +36,7 @@ namespace NbaScraper
         {
             try
             {
+                // Console.WriteLine("Finding tbody");
                 return doc.DocumentNode.SelectSingleNode("//tbody[@class='Table__TBODY']"); 
             }
             catch (Exception ex)
@@ -48,6 +50,9 @@ namespace NbaScraper
         {
             try
             {
+                // Console.WriteLine($"Finding td | {node == null}");
+
+                // Get the td with class name 'Table__TD'
                 return node.SelectSingleNode("td[@class='Table__TD']");
             }
             catch (Exception ex)
@@ -61,6 +66,10 @@ namespace NbaScraper
         {
             try
             {
+                // Console.WriteLine($"Finding span | {node == null}");
+
+                // Get the span without a class inside of the td with class name 'Table__TD'
+                
                 return node.SelectSingleNode("span");
             }
             catch (Exception ex)
@@ -74,6 +83,9 @@ namespace NbaScraper
         {
             try
             {
+                // Console.WriteLine($"Finding anchor | {node == null}");
+
+                // Get the anchor tag inside of the span without a class
                 return node.SelectSingleNode("a");
             }
             catch (Exception ex)
@@ -87,6 +99,9 @@ namespace NbaScraper
         {
             try
             {
+                // Console.WriteLine($"Getting anchor inner text | {node == null}");
+
+                // Get the inner text of node
                 return node.InnerHtml;
             }
             catch (Exception ex)

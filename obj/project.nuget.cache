@@ -1,0 +1,10 @@
+{
+  "version": 2,
+  "dgSpecHash": "l/a/E3XQMEHcCbgKxEYOXHGs42Cm/pcurVjtbAT030Akoi3DeCbWMTizqaXBP+N1xHHnlfeRJ58ZErlezL5KYg==",
+  "success": true,
+  "projectFilePath": "E:\\Github\\NbaPlayersScraper\\NbaScraper.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\snr7\\.nuget\\packages\\htmlagilitypack\\1.11.52\\htmlagilitypack.1.11.52.nupkg.sha512"
+  ],
+  "logs": []
+}

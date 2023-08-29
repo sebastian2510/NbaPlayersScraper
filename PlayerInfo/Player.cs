@@ -6,15 +6,20 @@ using System.Threading.Tasks;
 
 namespace NbaScraper.PlayerInfo
 {
-    public class Player
+    internal class Player
     {
-        public string? Name { get; set; }
+        public string Name { get; set; }
         public Stats Stats { get; set; }
 
         public Player(string name, Stats stats)
         {
             Name = name;
             Stats = stats;
+        }
+
+        public Player()
+        {
+
         }
     }
 }
