@@ -8,7 +8,6 @@ namespace NbaScraper
 {
     internal class Program
     {
-
         private static List<string> urls = new List<string>
         {
             "https://www.espn.com/nba/team/stats/_/name/bos/",
